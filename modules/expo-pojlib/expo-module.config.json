@@ -1,0 +1,15 @@
+{
+  "platforms": ["android"],
+  "apple": {
+    "modules": ["PojlibModule"]
+  },
+  "android": {
+    "gradleAarProjects": [
+        {
+          "name": "pojlib-aar",
+          "aarFilePath": "libs/Pojlib-release.aar"
+        }
+    ],
+    "modules": ["expo.modules.pojlib.PojlibModule"]
+  }
+}
