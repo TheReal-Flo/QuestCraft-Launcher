@@ -35,10 +35,10 @@ jobs:
             --non-interactive \
             --platform android \
             --profile preview \
-            --output ./app-build
+            --output ./app-build.apk
 
       - name: 📱 Upload binary artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-android
-          path: app-build
+          path: app-build.apk
