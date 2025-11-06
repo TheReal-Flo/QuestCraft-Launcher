@@ -26,9 +26,9 @@ export default function HomeScreen() {
   return (
     <View>
       {error ? (
-        <Text>Error: {error}</Text>
+        <Text style={{ color: "white" }}>Error: {error}</Text>
       ) : (
-        <Text>{supportedVersions.length > 0 ? supportedVersions.join(", ") : "Loading..."}</Text>
+        <Text style={{ color: "white" }}>{supportedVersions.length > 0 ? supportedVersions.join(", ") : "Loading..."}</Text>
       )}
     </View>
   );
