@@ -1,8 +1,8 @@
-import { NativeModulesProxy } from 'expo-modules-core';
+import { requireNativeModule } from 'expo-modules-core';
 import { PojlibModule } from './src/Pojlib.types';
 
 // Export the module
-const PojlibModuleProxy = NativeModulesProxy.PojlibModule;
+const PojlibModuleProxy = requireNativeModule('PojlibModule');
 
 // Create a proxy that throws helpful errors if the module isn't available
 const createModuleProxy = (): PojlibModule => {
