@@ -29,6 +29,26 @@ jobs:
       - name: 📦 Install dependencies
         run: npm install
 
+      - name: 💾 Cache Gradle dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: 💾 Cache Android SDK
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.android/build-cache
+            ~/.android/cache
+          key: ${{ runner.os }}-android-sdk-${{ hashFiles('app.json', 'eas.json') }}
+          restore-keys: |
+            ${{ runner.os }}-android-sdk-
+
       - name: 👷 Build Android app (local)
         run: |
           npx eas-cli build --local \
